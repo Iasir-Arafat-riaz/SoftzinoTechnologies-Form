@@ -1,0 +1,14 @@
+.motherDiv{
+    height: 100vh;
+}
+.sideCol{
+background-color: #FBE4D5;
+border-right: 2px solid black;
+
+}
+.bodyCenter{
+
+background-color: #E2EFD9;
+border-right: 2px solid black;
+
+}
