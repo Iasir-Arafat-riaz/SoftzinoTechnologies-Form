@@ -1,14 +1,33 @@
-.motherDiv{
-    height: 100vh;
+.motherDiv {
+  height: 100vh;
 }
-.sideCol{
-background-color: #FBE4D5;
-border-right: 2px solid black;
 
+.sideCol {
+  background-color: #FBE4D5;
+  border-right: 2px solid black;
 }
-.bodyCenter{
 
-background-color: #E2EFD9;
-border-right: 2px solid black;
-
+.bodyCenter {
+  background-color: #E2EFD9;
+  border-right: 2px solid black;
+  padding-top: 100px;
 }
+
+.bodyCenter input {
+  background-color: #E2EFD9;
+}
+
+.childOfDiv {
+  width: 300px;
+  margin: auto;
+}
+
+.buttonDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=Common.css.map */

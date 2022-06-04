@@ -1,18 +1,54 @@
 import React from "react";
-import "./Common.css"
+// import { useForm } from "react-hook-form";
+import "./Common.css";
 
-const NameGender1 = () => {
+const NameGender1 = ({ register }) => {
   return (
-    <div className="row motherDiv">
-      <div  className="col-md-3 sideCol">
-          <h2>First</h2>
+    
+      <div >
+        <label htmlFor="">
+          Name
+          <br />
+          <input
+            {...register("fullName")}
+            type="text"
+            name="fullName"
+            placeholder="Enter your name"
+            id="name"
+          />
+        </label>
+        <br />
+        <br />
+        <label htmlFor="">Gender</label>
+        <br />
+        <label htmlFor="field-rain">
+          <input
+            {...register("gender")}
+            type="radio"
+            name="gender"
+            value="male"
+            id="field-rain"
+          />
+          Male
+        </label>
+        <br />
+        <label htmlFor="field-wind">
+          <input
+            {...register("gender")}
+            type="radio"
+            name="gender"
+            value="female"
+            id="field-wind"
+          />
+          Female
+        </label>
+        <div className="buttonDiv">
+        {/* <button type="submit">Send</button> */}
+        <span></span>
+        <button >Next</button>
+        </div>
       </div>
-      <div className="col-md-6 bodyCenter" >
-          <h2>Center</h2>
-      </div>
-      <div  className="col-md-3 sideCol">
-          <h1>Last</h1></div>
-    </div>
+    
   );
 };
 
