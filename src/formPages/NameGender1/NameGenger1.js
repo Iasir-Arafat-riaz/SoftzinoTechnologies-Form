@@ -46,6 +46,7 @@ const NameGender1 = ({ register }) => {
         {/* <button type="submit">Send</button> */}
         <span></span>
         <button >Next</button>
+        
         </div>
       </div>
     
