@@ -1,4 +1,5 @@
 import React from "react";
+import { getLocal } from "../../utilities/localDb";
 
 const Amount = ({ register, setPage, page }) => {
   return (
@@ -7,18 +8,19 @@ const Amount = ({ register, setPage, page }) => {
         Amount(BDT)
         <br />
         <input
+        defaultValue={getLocal("amount")}
           className="inputSizing"
           {...register("amount")}
           type="number"
           name="amount"
-          placeholder=" ৳"
+          placeholder="৳"
           id="name"
           onFocus={(x)=>{ return x.toLocaleString("en-US")}}
         />
       </label>
       <div className="buttonDiv">
-      <button onClick={()=>setPage(page-1)} >Back</button>
-      <button onClick={()=>setPage(page+1)} >Next</button>
+      <button className="commonBtn" onClick={()=>setPage(page-1)} >Back</button>
+      <button className="commonBtn" onClick={()=>setPage(page+1)} >Next</button>
       </div>
     </div>
   );

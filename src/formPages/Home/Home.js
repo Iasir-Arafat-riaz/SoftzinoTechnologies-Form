@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { addToLocal, getLocal } from "../../utilities/localDb";
 import Amount from "../Amount/Amount";
 import DateTime from "../DateTime/DateTime";
 import "../NameGender1/Common.css";
@@ -11,7 +12,39 @@ import FromTo from "./FromTo/FromTo";
 const Home = () => {
     const [page,setPage]=useState(0)
     const [formDatas,setFormDatas]=useState({})
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, watch,getValues,setValue} = useForm();
+  const name = watch("fullName");
+  const gander = watch("gender");
+  const from = watch("from");
+  const to = watch("to");
+  const date = watch("date");
+  const time = watch("time");
+  const amount = watch("amount");
+  const note = watch("note");
+  // const multipleValues = getValues(["fullName", "gender"]);
+  // console.log(multipleValues);
+
+  // useEffect(()=>{
+  //   const allField= ["name","gender","from","to","date","time","amount","note"];
+  //   allField.forEach(name=>{
+  //     setValue(name,getLocal(name));
+  //   })
+  //   const multipleValues = getValues();
+  // console.log(multipleValues);
+  // },[])
+  
+
+  useEffect(()=>{
+  const multipleValues = getValues();
+  console.log(multipleValues);
+  const totalKeys= Object.keys(multipleValues);
+  totalKeys.forEach(name=>{
+    addToLocal(name,watch(name));
+  })
+  },[name,gander,from,to,date,time,amount,note]);
+
+  
+
   const onSubmit = (data) => {
       console.log(data)
       setFormDatas(data)
@@ -19,7 +52,7 @@ const Home = () => {
 console.log(page)
 const activeComponent=()=>{
     if(page===0){
-        return <NameGender1 register={register} setPage={setPage} page={page}/>
+        return <NameGender1 setValue={setValue} watch={watch} register={register} setPage={setPage} page={page}/>
     }
     else if(page===1){
         return   <FromTo register={register} setPage={setPage} page={page}/>
@@ -46,8 +79,7 @@ const activeComponent=()=>{
            
           <form onSubmit={handleSubmit(onSubmit)}>
           {activeComponent()}
-            {/* <NameGender1 register={register} /> */}
-            {/* <FromTo register={register}/> */}
+           
           </form>
         </div>
       </div>

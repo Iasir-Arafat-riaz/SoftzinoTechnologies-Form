@@ -1,4 +1,5 @@
 import React from "react";
+import { getLocal } from "../../../utilities/localDb";
 
 const FromTo = ({ register,setPage,page }) => {
     // const handleClick=()=>{
@@ -8,7 +9,8 @@ const FromTo = ({ register,setPage,page }) => {
     <div>
         <label htmlFor="">From</label>
         <br />
-      <select className="inputSizing" {...register("from")}>
+      <select defaultValue={getLocal("from")} className="inputSizing" {...register("from")}>
+        
         <option value="東京"> 東京</option>
         <option value="名古屋">名古屋</option>
       </select>
@@ -16,13 +18,13 @@ const FromTo = ({ register,setPage,page }) => {
       <br />
       <label htmlFor="">To</label>
       <br />
-      <select  className="inputSizing" {...register("to")}>
+      <select defaultValue={getLocal("to")}  className="inputSizing" {...register("to")}>
         <option value="横浜">横浜</option>
         <option value="大阪">大阪</option>
       </select>
       <div className="buttonDiv">
-      <button onClick={()=>setPage(page-1)} >Back</button>
-      <button onClick={()=>setPage(page+1)} >Next</button>
+      <button className="commonBtn" onClick={()=>setPage(page-1)} >Back</button>
+      <button className="commonBtn" onClick={()=>setPage(page+1)} >Next</button>
       </div>
       
     </div>
