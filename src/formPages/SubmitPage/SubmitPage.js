@@ -36,6 +36,14 @@ const SubmitPage = ({ register, page, setPage }) => {
     const findingUser = finding?.fullName;
     console.log(findingUser);
     if (findingUser) {
+        Swal.fire({
+            position: 'top',
+            icon: 'error',
+            title: 'user already exist, try with different user',
+            showConfirmButton: false,
+            timer: 2500
+          })
+          
       setPage(6);
     } else {
       console.log(page);
@@ -49,11 +57,11 @@ const SubmitPage = ({ register, page, setPage }) => {
           setPage(7);
           console.log(data);
           Swal.fire({
-            position: "top-end",
+            position: "top",
             icon: "success",
             title: "Reservation Successful",
             showConfirmButton: false,
-            timer: 1500,
+            timer: 2500,
           });
           localStorage.clear();
         })
