@@ -23,9 +23,9 @@ border-right: $colBorder;
 background-color: $center-color;
 border-right: $colBorder;
 padding-top: 100px;
-input{
-    background-color:$center-color ;
-}
+// input{
+//     background-color:$center-color ;
+// }
 
 }
 .fixedContent {
@@ -34,11 +34,15 @@ input{
 
 
 .childOfDiv{
-    width: 300px;
+    width: 400px;
     margin: auto;
 }
 .buttonDiv{
     display: flex;
     justify-content: space-between;
     margin-top: 100px;
+}
+.inputSizing{
+    width: 400px;
+    background-color: $center-color;
 }

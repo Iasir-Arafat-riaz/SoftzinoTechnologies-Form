@@ -1,6 +1,6 @@
 import React from "react";
 
-const FromTo = ({ register }) => {
+const FromTo = ({ register,setPage,page }) => {
     // const handleClick=()=>{
     //     console.log("hle riaz")
     // }
@@ -8,7 +8,7 @@ const FromTo = ({ register }) => {
     <div>
         <label htmlFor="">From</label>
         <br />
-      <select {...register("from")}>
+      <select className="inputSizing" {...register("from")}>
         <option value="東京"> 東京</option>
         <option value="名古屋">名古屋</option>
       </select>
@@ -16,13 +16,13 @@ const FromTo = ({ register }) => {
       <br />
       <label htmlFor="">To</label>
       <br />
-      <select {...register("to")}>
+      <select  className="inputSizing" {...register("to")}>
         <option value="横浜">横浜</option>
         <option value="大阪">大阪</option>
       </select>
       <div className="buttonDiv">
-      <button >Back</button>
-      <button >Next</button>
+      <button onClick={()=>setPage(page-1)} >Back</button>
+      <button onClick={()=>setPage(page+1)} >Next</button>
       </div>
       
     </div>

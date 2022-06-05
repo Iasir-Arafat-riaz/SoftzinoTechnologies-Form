@@ -2,7 +2,7 @@ import React from "react";
 // import { useForm } from "react-hook-form";
 import "./Common.css";
 
-const NameGender1 = ({ register }) => {
+const NameGender1 = ({ register,setPage,page }) => {
   return (
     
       <div >
@@ -10,6 +10,7 @@ const NameGender1 = ({ register }) => {
           Name
           <br />
           <input
+          className="inputSizing"
             {...register("fullName")}
             type="text"
             name="fullName"
@@ -45,7 +46,7 @@ const NameGender1 = ({ register }) => {
         <div className="buttonDiv">
         {/* <button type="submit">Send</button> */}
         <span></span>
-        <button >Next</button>
+        <button onClick={()=>setPage(page+1)}>Next</button>
         
         </div>
       </div>

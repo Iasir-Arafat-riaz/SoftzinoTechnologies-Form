@@ -13,12 +13,8 @@
   padding-top: 100px;
 }
 
-.bodyCenter input {
-  background-color: #E2EFD9;
-}
-
 .childOfDiv {
-  width: 300px;
+  width: 400px;
   margin: auto;
 }
 
@@ -30,5 +26,10 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: 100px;
+}
+
+.inputSizing {
+  width: 400px;
+  background-color: #E2EFD9;
 }
 /*# sourceMappingURL=Common.css.map */
