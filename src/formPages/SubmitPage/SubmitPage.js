@@ -5,7 +5,7 @@ const SubmitPage = ({ register, page, setPage }) => {
   const [alldatas, setAllDatas] = useState({});
   const [infos, setInfos] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/passengers")
+    fetch("https://protected-anchorage-52714.herokuapp.com/passengers")
       .then((res) => res.json())
       .then((data) => setInfos(data));
   }, []);
@@ -39,7 +39,7 @@ const SubmitPage = ({ register, page, setPage }) => {
     } else {
         setPage(7);
         console.log(page)
-      fetch("http://localhost:5000/passengers", {
+      fetch("https://protected-anchorage-52714.herokuapp.com/passengers", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(alldatas),
