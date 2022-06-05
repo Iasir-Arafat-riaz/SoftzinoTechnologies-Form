@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import { getLocal } from "../../utilities/localDb";
 
 const SubmitPage = ({ register, page, setPage }) => {
@@ -30,15 +31,14 @@ const SubmitPage = ({ register, page, setPage }) => {
 
   const submitDatas = (e) => {
     e.preventDefault();
- 
+
     const finding = infos.find((info) => info.fullName === alldatas?.fullName);
     const findingUser = finding?.fullName;
     console.log(findingUser);
     if (findingUser) {
       setPage(6);
     } else {
-        setPage(7);
-        console.log(page)
+      console.log(page);
       fetch("https://protected-anchorage-52714.herokuapp.com/passengers", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -46,7 +46,15 @@ const SubmitPage = ({ register, page, setPage }) => {
       })
         .then((res) => res.json())
         .then((data) => {
+          setPage(7);
           console.log(data);
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Reservation Successful",
+            showConfirmButton: false,
+            timer: 1500,
+          });
           localStorage.clear();
         })
         .catch((err) => console.log(err));
@@ -62,7 +70,7 @@ const SubmitPage = ({ register, page, setPage }) => {
       <p>To: {alldatas?.to}</p>
       <p>Date: {alldatas?.date}</p>
       <p>Time: {alldatas?.time}</p>
-      <p>Amount: {amountConvert.toFixed(2)}</p>
+      <p>Amount: {amountConvert.toFixed(2)} Yen</p>
       <p>Note: </p>
       <textarea
         className="inputSizing"
