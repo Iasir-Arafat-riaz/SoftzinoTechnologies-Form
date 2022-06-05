@@ -5,12 +5,17 @@ import DateTime from "../DateTime/DateTime";
 import "../NameGender1/Common.css";
 import NameGender1 from "../NameGender1/NameGenger1";
 import Note from "../Note/Note";
+import SubmitPage from "../SubmitPage/SubmitPage";
 import FromTo from "./FromTo/FromTo";
 
 const Home = () => {
     const [page,setPage]=useState(0)
+    const [formDatas,setFormDatas]=useState({})
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+      console.log(data)
+      setFormDatas(data)
+    };
 console.log(page)
 const activeComponent=()=>{
     if(page===0){
@@ -27,6 +32,9 @@ const activeComponent=()=>{
     }
     else if(page===4){
         return   <Note register={register} setPage={setPage} page={page}/>
+    }
+    else if(page===5){
+        return   <SubmitPage register={register} setPage={setPage} page={page} formDatas={formDatas}/>
     }
 }
 
