@@ -15,7 +15,7 @@ const Amount = ({ register, setPage, page }) => {
           name="amount"
           placeholder="৳"
           id="name"
-          onFocus={(x)=>{ return x.toLocaleString("en-US")}}
+          
         />
       </label>
       <div className="buttonDiv">

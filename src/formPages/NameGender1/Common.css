@@ -18,6 +18,10 @@
   margin: auto;
 }
 
+.childOfDiv p {
+  line-height: .5rem;
+}
+
 .buttonDiv {
   display: -webkit-box;
   display: -ms-flexbox;

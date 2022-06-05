@@ -3,16 +3,18 @@ import { useForm } from "react-hook-form";
 import { addToLocal, getLocal } from "../../utilities/localDb";
 import Amount from "../Amount/Amount";
 import DateTime from "../DateTime/DateTime";
+import ErorPage from "../ErorPage/ErorPage";
 import "../NameGender1/Common.css";
 import NameGender1 from "../NameGender1/NameGenger1";
 import Note from "../Note/Note";
 import SubmitPage from "../SubmitPage/SubmitPage";
+import SuccessPage from "../SuccessPage/SuccessPage";
 import FromTo from "./FromTo/FromTo";
 
 const Home = () => {
     const [page,setPage]=useState(0)
-    const [formDatas,setFormDatas]=useState({})
-  const { register, handleSubmit, watch,getValues,setValue} = useForm();
+    
+  const { register, watch,getValues,setValue} = useForm();
   const name = watch("fullName");
   const gander = watch("gender");
   const from = watch("from");
@@ -20,7 +22,9 @@ const Home = () => {
   const date = watch("date");
   const time = watch("time");
   const amount = watch("amount");
+  
   const note = watch("note");
+  
   // const multipleValues = getValues(["fullName", "gender"]);
   // console.log(multipleValues);
 
@@ -36,8 +40,9 @@ const Home = () => {
 
   useEffect(()=>{
   const multipleValues = getValues();
-  console.log(multipleValues);
+  // console.log(multipleValues);
   const totalKeys= Object.keys(multipleValues);
+  console.log(totalKeys);
   totalKeys.forEach(name=>{
     addToLocal(name,watch(name));
   })
@@ -45,10 +50,10 @@ const Home = () => {
 
   
 
-  const onSubmit = (data) => {
-      console.log(data)
-      setFormDatas(data)
-    };
+  // const onSubmit = (data) => {
+  //     console.log(data)
+  //     setFormDatas(data)
+  //   };
 console.log(page)
 const activeComponent=()=>{
     if(page===0){
@@ -67,7 +72,13 @@ const activeComponent=()=>{
         return   <Note register={register} setPage={setPage} page={page}/>
     }
     else if(page===5){
-        return   <SubmitPage register={register} setPage={setPage} page={page} formDatas={formDatas}/>
+        return   <SubmitPage register={register} setPage={setPage} page={page} />
+    }
+    else if(page===6){
+        return   <ErorPage register={register} setPage={setPage} page={page} />
+    }
+    else if(page===7){
+        return   <SuccessPage register={register} setPage={setPage} page={page} />
     }
 }
 
@@ -77,7 +88,7 @@ const activeComponent=()=>{
       <div className="col-md-6 bodyCenter">
         <div className="childOfDiv">
            
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form>
           {activeComponent()}
            
           </form>
