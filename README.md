@@ -6,6 +6,7 @@
 
 # About this task;
 * I am following provided design;
+* write server side code inside last submitted task...... for this project just follow line 28 to 38 rest are previous task code.
 * when change from page one to anothe in that time it's rendered with real time that's why no need to add loader;
 * can't implement all field required :( 
 * Functional requirement fulfilled;    
