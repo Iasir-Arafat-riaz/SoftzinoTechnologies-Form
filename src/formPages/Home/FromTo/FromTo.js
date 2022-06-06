@@ -3,7 +3,7 @@ import { getLocal } from "../../../utilities/localDb";
 
 const FromTo = ({ register,setPage,page }) => {
     // const handleClick=()=>{
-    //     //console.log("hle riaz")
+    //     console.log("hle riaz")
     // }
   return (
     <div>
