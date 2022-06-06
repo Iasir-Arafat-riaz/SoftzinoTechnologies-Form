@@ -28,16 +28,16 @@ const Home = () => {
 
   useEffect(() => {
     const multipleValues = getValues();
-    // //console.log(multipleValues);
+    // console.log(multipleValues);
     const totalKeys = Object.keys(multipleValues);
-    //console.log(totalKeys);
+    console.log(totalKeys);
     totalKeys.forEach((name) => {
       addToLocal(name, watch(name));
     });
   }, [name, gander, from, to, date, time, amount, note]);
 
    // const multipleValues = getValues(["fullName", "gender"]);
-  // //console.log(multipleValues);
+  // console.log(multipleValues);
 
   // useEffect(()=>{
   //   const allField= ["name","gender","from","to","date","time","amount","note"];
@@ -45,10 +45,10 @@ const Home = () => {
   //     setValue(name,getLocal(name));
   //   })
   //   const multipleValues = getValues();
-  // //console.log(multipleValues);
+  // console.log(multipleValues);
   // },[])
 
-  //console.log(page);
+  console.log(page);
   const activeComponent = () => {
     if (page === 0) {
       return (
